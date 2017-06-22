@@ -112,6 +112,7 @@ key           | required | description
 --------------|----------|---------------
 `title`       | no       | *Textual title to show. Example: '#mychannel'.*
 `channel`     | no       | *Name of the channel to follow. Defaults to all public channels where token has permissions to*
+`showAuthor`  | no       | Show author's details. Defaults to `true`
 `imageSize`   | no       | Scaling of image: initial, cover, contain. Default to `initial`
 `showImages`  | no       | Show images or not. Defaults to `true`
 `showPulse`   | no       | Show pulse visualisation on each message or not. Defaults to `false`

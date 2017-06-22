@@ -154,16 +154,17 @@ class Channel extends Component {
       </div>
       <div className="widget__body" ref={(c) => this._body = c}>
         <div className={content.bodyClass}>
-          <div style={content.style} className="slack-channel__message--value">{content.text}</div>
+          <div style={content.style} className="slack-channel__message--value">{message.image ? '' : content.text}</div>
         </div>
         {pulse}
-        <div className={content.footerClass}>
-          <div className="slack-channel__footer--avatar"><img src={content.avatar} /></div>
-          <div className="slack-channel__footer--meta">
-            <div className="slack-channel__footer--author">{content.author}</div>
-            <div className="slack-channel__footer--date">{content.date}</div>
-          </div>
-        </div>
+        {this.props.showAuthor && <div className={content.footerClass}>
+                                      <div className="slack-channel__footer--avatar"><img src={content.avatar} /></div>
+                                      <div className="slack-channel__footer--meta">
+                                        <div className="slack-channel__footer--author">{content.author}</div>
+                                        <div className="slack-channel__footer--date">{content.date}</div>
+                                      </div>
+                                  </div>
+        }
       </div>
     </div>);
   }
@@ -172,6 +173,7 @@ class Channel extends Component {
 Channel.propTypes = {
   title: React.PropTypes.string,
   channel: React.PropTypes.string,
+  showAuthor: React.PropTypes.bool,
   showImages: React.PropTypes.bool,
   showPulse: React.PropTypes.bool,
   keyword: React.PropTypes.string,
@@ -180,6 +182,7 @@ Channel.propTypes = {
 
 Channel.defaultProps = {
   channel: null,
+  showAuthor: true,
   showImages: true,
   showPulse: false,
   keyword: null,
