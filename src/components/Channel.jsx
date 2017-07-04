@@ -154,7 +154,7 @@ class Channel extends Component {
       </div>
       <div className="widget__body" ref={(c) => this._body = c}>
         <div className={content.bodyClass}>
-          <div style={content.style} className="slack-channel__message--value">{message.image ? '' : content.text}</div>
+          <div style={content.style} className="slack-channel__message--value">{message && message.image ? '' : content.text}</div>
         </div>
         {pulse}
         {this.props.showAuthor && <div className={content.footerClass}>
